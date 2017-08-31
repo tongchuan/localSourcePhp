@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function(){
+	$datalist = App\Model\Posts::all();
+	var_dump($datalist);
+	return;
+});
