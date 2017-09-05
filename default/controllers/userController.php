@@ -22,6 +22,7 @@ class userController extends baseController{
 	}
 
 	public function loginSubmit(){
+		echo json_encode($_POST);exit();
 		$username=$_POST['username'];
 		$password=$_POST['password'];
 		$data=NULL;

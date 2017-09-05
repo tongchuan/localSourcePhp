@@ -10,8 +10,12 @@ const getters = {
   userStore: state => state.userStore
 }
 const actions = {
-  [GET_USER] ({commit, state}, {data}) {
-    commit(GET_USER, data)
+  [GET_USER] ({commit, state}, data) {
+    userDB.getuser(data).then((data) => {
+      commit(GET_USER, data)
+    }).catch((error) => {
+      console.log(error)
+    })
   }
 }
 const mutations = {
