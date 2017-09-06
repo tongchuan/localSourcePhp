@@ -6,6 +6,7 @@ import 'iview/dist/styles/iview.css' // 使用 CSS
 import store from '@/store'
 import App from '@/App'
 import router from '@/router'
+import '@/less/main.less'
 
 Vue.use(iView)
 Vue.config.productionTip = false

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="g">
     <div class="newsItem">
       <ul>
         <li>newsItem</li>
@@ -26,6 +26,9 @@ export default {
       line-height: 30px
 </style>
 <style lang="less" scoped>
+.g{
+  background: url('../../assets/logo.png')
+}
 .newsItem{
   width: 100%;
   ul{
