@@ -10,11 +10,12 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: ['babel-polyfill','./src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
+    chunkFilename: '[name]-chunk[id].js?[chunkhash]',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath

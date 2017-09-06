@@ -1,18 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <div class="">
+      {{errorStore.message}}
+    </div>
+    <!-- <img src="./assets/logo.png"> -->
     <router-view></router-view>
-    
+
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    ...mapGetters({
+      errorStore: 'errorStore'
+    })
+  }
 }
 </script>
 
 <style>
+/*@primary-color: #8c0776*/
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

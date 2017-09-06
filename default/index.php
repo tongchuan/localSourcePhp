@@ -12,7 +12,7 @@ define('SITE_PATH',realpath(dirname(__FILE__)).'/');
 // Content-Type=application/json;charset=UTF-8 
 header('Access-Control-Allow-Origin:*');  
 header('Access-Control-Allow-Methods:POST');  
-header('Access-Control-Allow-Headers:x-requested-with,content-type');
+header('Access-Control-Allow-Headers:Content-Type, Authorization, X-Requested-With');
 
 // header("Content-type: text/html; charset=utf-8"); 
 /*Require necessary files.*/
