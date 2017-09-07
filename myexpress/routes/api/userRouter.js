@@ -12,10 +12,10 @@ router.all('/list',function(req, res, next){
   })
 })
 
-router.all('/delete',function(req, res, next){
+router.all('/remove',function(req, res, next){
   let data = {}
   data[req.body.type] = req.body.value
-  userModel.delete().then((data)=>{
+  userModel.remove(data).then((data)=>{
     message.success.data = data
     res.send(message.success)
   },(err)=>{

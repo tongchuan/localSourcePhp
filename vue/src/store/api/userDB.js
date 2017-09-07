@@ -1,6 +1,16 @@
 import axios from './axios'
 import config from './config'
 
+export function userList (data) {
+  return new Promise((resolve, reject) => {
+    axios.get(config.user.userList, {params: data}).then((data) => {
+      resolve(data)
+    }).catch((error) => {
+      console.log(error.toString())
+      reject(error)
+    })
+  })
+}
 export function getuser (data) {
   return new Promise((resolve, reject) => {
     axios.get(config.user.getuser, {params: data}).then((data) => {

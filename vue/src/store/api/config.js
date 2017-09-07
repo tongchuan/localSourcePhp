@@ -1,5 +1,6 @@
 export default {
   user: {
-    getuser: 'user/loginSubmit'
+    getuser: 'user/loginSubmit',
+    userList: 'user/list'
   }
 }

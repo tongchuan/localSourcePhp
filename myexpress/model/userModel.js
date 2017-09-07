@@ -41,7 +41,7 @@ function save(data){
   });
 }
 
-module.exports.delete = function(data){
+function remove(data){
   return new Promise(function(resolve,reject){
     Schema.remove(data,function(err){
       if(err===null){
@@ -57,5 +57,5 @@ module.exports = {
   // schema:Schema,
   find:find,
   save:save,
-  delete:delete
+  remove:remove
 }

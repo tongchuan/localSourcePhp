@@ -1,8 +1,16 @@
 import * as userDB from '../api/userDB'
-import { GET_USER, GET_USERS, ERROR_MESSAGE } from '../methods'
+import {
+  GET_USER,
+  GET_USERS,
+  ERROR_MESSAGE,
+  USER_LIST
+  // USER_ADD,
+  // USER_DELETE
+ } from '../methods'
 // console.log(userDB)
 const state = {
   userStore: {
+    userlist: [],
     user: null
   }
 }
@@ -10,6 +18,14 @@ const getters = {
   userStore: state => state.userStore
 }
 const actions = {
+  [USER_LIST] ({commit, state}, data) {
+    userDB.userList(data).then((data) => {
+      commit(USER_LIST, data)
+    }).catch((error) => {
+      commit(ERROR_MESSAGE, error.toString())
+      console.log(error)
+    })
+  },
   [GET_USER] ({commit, state}, data) {
     userDB.getuser(data).then((data) => {
       commit(GET_USER, data)
@@ -27,6 +43,9 @@ const actions = {
   }
 }
 const mutations = {
+  [USER_LIST] (state, data) {
+    state.userStore.userlist = Object.assign([], data.data)
+  },
   [GET_USER] (state, data) {
     state.userStore.user = Object.assign({}, data)
   },
