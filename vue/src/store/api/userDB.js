@@ -11,6 +11,37 @@ export function userList (data) {
     })
   })
 }
+export function userRemove (data) {
+  return new Promise((resolve, reject) => {
+    axios.post(config.user.userRemove, data).then((data) => {
+      resolve(data)
+    }).catch((error) => {
+      console.log(error.toString())
+      reject(error)
+    })
+  })
+}
+export function userAdd (data) {
+  return new Promise((resolve, reject) => {
+    axios.post(config.user.userAdd, data).then((data) => {
+      resolve(data)
+    }).catch((error) => {
+      console.log(error.toString())
+      reject(error)
+    })
+  })
+}
+export function findOne (data) {
+  return new Promise((resolve, reject) => {
+    axios.post(config.user.userfindOne, data).then((data) => {
+      resolve(data)
+    }).catch((error) => {
+      console.log(error.toString())
+      reject(error)
+    })
+  })
+}
+
 export function getuser (data) {
   return new Promise((resolve, reject) => {
     axios.get(config.user.getuser, {params: data}).then((data) => {

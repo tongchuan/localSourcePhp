@@ -15,13 +15,32 @@ router.all('/list',function(req, res, next){
 router.all('/remove',function(req, res, next){
   let data = {}
   data[req.body.type] = req.body.value
-  userModel.remove(data).then((data)=>{
-    message.success.data = data
-    res.send(message.success)
-  },(err)=>{
-    message.error.msg = err.toString()
+  if(!req.body.type || !req.body.value){
     res.send(message.error)
-  })
+  }else{
+    userModel.remove(data).then((data)=>{
+      message.success.data = data
+      res.send(message.success)
+    },(err)=>{
+      message.error.msg = err.toString()
+      res.send(message.error)
+    })
+  }
+})
+router.all('/findOne',function(req, res, next){
+  let data = {}
+  data[req.body.type] = req.body.value
+  if(!req.body.type || !req.body.value){
+    res.send(message.error)
+  }else{
+    userModel.findOne(data).then((data)=>{
+      message.success.data = data
+      res.send(message.success)
+    },(err)=>{
+      message.error.msg = err.toString()
+      res.send(message.error)
+    })
+  }
 })
 
 router.all('/save',function(req, res, next){
@@ -36,13 +55,29 @@ router.all('/save',function(req, res, next){
     age: req.body.age,
     email: req.body.email
   }
-  userModel.save(data).then((data)=>{
-    message.success.data = data
-    res.send(message.success)
-  },(err)=>{
-    message.error.msg = err.toString()
+  if(!req.body.name || !req.body.pwd){
     res.send(message.error)
-  })
+  }else{
+    console.log(!!req.body._id);
+    if(req.body._id){
+      userModel.update({_id:req.body._id},data).then((data)=>{
+        message.success.data = data
+        res.send(message.success)
+      },(err)=>{
+        message.error.msg = err.toString()
+        res.send(message.error)
+      })
+    }else{
+      userModel.save(data).then((data)=>{
+        message.success.data = data
+        res.send(message.success)
+      },(err)=>{
+        message.error.msg = err.toString()
+        res.send(message.error)
+      })
+    }
+
+  }
 })
 
 module.exports = router;

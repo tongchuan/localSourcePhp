@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   pwd: String,
   date:{type:Date,default:Date.now},
   hidden:Boolean,
-  age:{type:Number,default:0},
+  gender:{type:Number,default:0},
   email:{type:String,default:''}
 }, {
   versionKey: false
@@ -20,6 +20,17 @@ function find(){
   return new Promise(function(resolve,reject){
     // Schema.find()
     Schema.find({},function(err,doc){
+      if(err===null){
+        resolve(doc)
+      }else{
+        reject(err)
+      }
+    })
+  })
+}
+function findOne(data){
+  return new Promise(function(resolve,reject){
+    Schema.findOne(data,function(err,doc){
       if(err===null){
         resolve(doc)
       }else{
@@ -52,10 +63,24 @@ function remove(data){
     })
   })
 }
+function update(oldData,newsData){
+  console.log(oldData,newsData);
+  return new Promise(function(resolve,reject){
+    Schema.update(oldData,newsData,function(err){
+      if(err===null){
+        resolve();
+      }else{
+        reject(err)
+      }
+    })
+  })
+}
 
 module.exports = {
   // schema:Schema,
   find:find,
   save:save,
-  remove:remove
+  update:update,
+  remove:remove,
+  findOne:findOne
 }

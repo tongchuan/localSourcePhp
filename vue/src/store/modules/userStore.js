@@ -3,9 +3,10 @@ import {
   GET_USER,
   GET_USERS,
   ERROR_MESSAGE,
-  USER_LIST
-  // USER_ADD,
-  // USER_DELETE
+  USER_LIST,
+  USER_ADD,
+  USER_DELETE,
+  USER_ITEM
  } from '../methods'
 // console.log(userDB)
 const state = {
@@ -21,6 +22,30 @@ const actions = {
   [USER_LIST] ({commit, state}, data) {
     userDB.userList(data).then((data) => {
       commit(USER_LIST, data)
+    }).catch((error) => {
+      commit(ERROR_MESSAGE, error.toString())
+      console.log(error)
+    })
+  },
+  [USER_DELETE] ({commit, state}, [data, callback]) {
+    userDB.userRemove(data).then((data) => {
+      callback(data)
+    }).catch((error) => {
+      commit(ERROR_MESSAGE, error.toString())
+      console.log(error)
+    })
+  },
+  [USER_ADD] ({commit, state}, [data, callback]) {
+    userDB.userAdd(data).then((data) => {
+      callback(data)
+    }).catch((error) => {
+      commit(ERROR_MESSAGE, error.toString())
+      console.log(error)
+    })
+  },
+  [USER_ITEM] ({commit, state}, [data, callback]) {
+    userDB.findOne(data).then((data) => {
+      callback(data)
     }).catch((error) => {
       commit(ERROR_MESSAGE, error.toString())
       console.log(error)
