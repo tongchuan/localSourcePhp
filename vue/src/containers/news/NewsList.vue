@@ -1,9 +1,7 @@
 <template lang="html">
   <div class="g">
     <div class="newsItem">
-      <ul>
-        <li>newsItem</li>
-      </ul>
+    <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
     </div>
     <div class="newslist">
       <ul>
@@ -26,9 +24,7 @@ export default {
       line-height: 30px
 </style>
 <style lang="less" scoped>
-.g{
-  background: url('../../assets/logo.png')
-}
+
 .newsItem{
   width: 100%;
   ul{

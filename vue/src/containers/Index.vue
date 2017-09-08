@@ -72,7 +72,6 @@ export default {
 <style lang="css">
 .layout{
   border: 1px solid #d7dde4;
-  background: url('../assets/logo.png') #f5f7f9;
 }
 .layout-logo{
   width: 100px;

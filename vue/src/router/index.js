@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import Hello from '@/components/Hello'
 import Index from '@/containers/Index'
 const NewsList = () => import('@/containers/news/NewsList')
+const NewsAdd = () => import('@/containers/news/NewsAdd')
 const UserList = () => import('@/containers/users/UserList')
 const UserAdd = () => import('@/containers/users/UserAdd')
 Vue.use(Router)
@@ -18,6 +19,11 @@ export default new Router({
       path: '/newslist',
       name: 'NewsList',
       component: NewsList
+    },
+    {
+      path: '/newsadd',
+      name: 'NewsAdd',
+      component: NewsAdd
     },
     {
       path: '/userslist',
