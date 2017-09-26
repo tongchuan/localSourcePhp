@@ -6,6 +6,9 @@ const NewsList = () => import('@/containers/news/NewsList')
 const NewsAdd = () => import('@/containers/news/NewsAdd')
 const UserList = () => import('@/containers/users/UserList')
 const UserAdd = () => import('@/containers/users/UserAdd')
+const Md = () => import('@/containers/md/Md')
+const MdList = () => import('@/containers/md/MdList')
+const MdItem = () => import('@/containers/md/MdItem')
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +42,21 @@ export default new Router({
       path: '/usersupdate/:id',
       name: 'UserAdd',
       component: UserAdd
+    },
+    {
+      path: '/md',
+      name: 'md',
+      component: Md
+    },
+    {
+      path: '/mdlist',
+      name: 'MdList',
+      component: MdList
+    },
+    {
+      path: '/mditem/:_id',
+      name: 'MdItem',
+      component: MdItem
     }
   ]
 })

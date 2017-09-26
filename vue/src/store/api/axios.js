@@ -117,7 +117,7 @@ instance.interceptors.request.use((config) => {
 })
 
 instance.interceptors.response.use((response) => {
-  console.log(response)
+  // console.log(response)
   if (response.data && response.status === 200) {
     return response.data
   } else {

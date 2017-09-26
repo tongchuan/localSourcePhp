@@ -5,5 +5,10 @@ export default {
     userAdd: 'user/save',
     userRemove: 'user/remove',
     userfindOne: 'user/findOne'
+  },
+  markdown: {
+    list: 'md/list',
+    save: 'md/save',
+    item: 'md/findOne'
   }
 }
