@@ -19,4 +19,6 @@
 			$vars['posts'] = $this->posts->getEntries();
 			$this->load->view('index',$vars);	
 		}
+
+		
 	}
