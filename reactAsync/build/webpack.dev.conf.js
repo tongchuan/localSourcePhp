@@ -5,7 +5,9 @@ let baseWebpackConfig = require('./webpack.base.conf')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 let ExtractTextPlugin = require('extract-text-webpack-plugin')
-
+Object.keys(baseWebpackConfig.entry).forEach((name) => {
+  baseWebpackConfig.entry[name] = baseWebpackConfig.entry[name].concat('webpack-hot-middleware/client?noInfo=true&reload=true')
+})
 module.exports = merge(baseWebpackConfig, {
   devtool: '#cheap-module-eval-source-map',
   plugins: [

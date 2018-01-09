@@ -16,11 +16,13 @@
     "stage-3"
   ],
   "plugins": [
+    "transform-runtime",
     "transform-decorators-legacy",
     "transform-async-to-generator",
     "transform-do-expressions",
     "syntax-do-expressions"
   ],
+  "comments": false,
   "env": {
     "development": {
       "presets": ["react-hmre"]

@@ -1,14 +1,16 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as userAction from '../actions/userAction'
-// import  newsAction from '../actions/newsAction'
+import PropTypes from 'prop-types'
+import userAction from '../actions/userAction'
+import newsAction from '../actions/newsAction'
 // console.log({...userAction, ...newsAction})
 // console.log({...userAction})
+// console.log(connect)
 @connect(
-  state => state,
-  dispatch => bindActionCreators({...userAction}, dispatch)
-  // dispatch => bindActionCreators({...userAction, ...newsAction}, dispatch)
+  state => {console.log(state);return state},
+  // dispatch => bindActionCreators({...userAction}, dispatch)
+  dispatch => bindActionCreators({...userAction, ...newsAction}, dispatch)
 )
 export default class App extends React.Component {
   constructor(props){
@@ -16,7 +18,7 @@ export default class App extends React.Component {
     this.state = {
       name: 111
     }
-    console.log(userAction.user1({name:'1111'}))
+    // console.log(userAction.user1({name:'1111'}))
     console.log(this.props)
   }
   // constructor (props) {
@@ -31,10 +33,11 @@ export default class App extends React.Component {
   }
 
   render () {
+    
     // console.log(this.props)
     // console.log(this.state)
     return (
-      <div>App</div>
+      <div>AppTESTgddd</div>
     )
   }
 }

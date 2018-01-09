@@ -5,6 +5,7 @@ let config = require('../config')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+process.env.NODE_ENV = config.dev.env
 
 module.exports = {
   entry: {
@@ -14,15 +15,27 @@ module.exports = {
   output: {
     filename: 'js/[name]-[hash].js',
     path: resolve('dist'),
-    publicPath: '/',
+    publicPath: config.dev.assetsPublicPath,
     chunkFilename: 'js/[name]-[hash].js',
   },
   resolve: {
     extensions: ['.js','.jsx','.css','.less','.scss'],
+    alias: {
+      '@': resolve('src')
+    }
     // modules: [resolve(__dirname,'node_modules')]
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        include: [resolve('src'), resolve('test')]
+        // query: {
+        //   presets: ['es2015',  'react']
+        // }
+      },
       {
         test: /\.(js)$/,
         loader: 'eslint-loader',
@@ -30,15 +43,6 @@ module.exports = {
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        include: [resolve('src'), resolve('test')],
-        query: {
-          presets: ['es2015', 'react']
         }
       },
       {
