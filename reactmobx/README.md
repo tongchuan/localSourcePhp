@@ -1,6 +1,7 @@
 #npm install 
 or
 #yarn
+
 npm install -g yarn
 
 #npm run dll 
@@ -10,6 +11,7 @@ npm install -g yarn
 http://127.0.0.1:3008
 #npm run build
 生成文件
+
 
 #react 
 #mobx
