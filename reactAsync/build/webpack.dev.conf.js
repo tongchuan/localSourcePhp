@@ -26,6 +26,13 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'style/[name].css',
       allChunks: true,
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      cache: true,
+      sourceMap:true,
+      beautify:true,
+      comments:true
+    }),
     new webpack.ProvidePlugin({
     })
   ]

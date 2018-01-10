@@ -20,6 +20,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js','.jsx','.css','.less','.scss'],
+    modules: [
+      resolve('node_modules'),
+      resolve('src')
+    ],
     alias: {
       '@': resolve('src')
     }
