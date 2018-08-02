@@ -10,7 +10,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
 define('SITE_PATH',realpath(dirname(__FILE__)).'/');
 // header('content-type:application:json;charset=utf-8'); 
-header('Content-type:application/json;charset=utf-8');
+// header('Content-type:application/json;charset=utf-8');
 // Content-Type=application/json;charset=UTF-8 
 // header('Access-Control-Allow-Origin:http://localhost:8080'); 
 header('Access-Control-Allow-Origin:*'); 
